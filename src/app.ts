@@ -6,12 +6,14 @@ import 'express-async-errors';
 
 import routes from './routes';
 import AppError from './errors/AppError';
+import cors from 'cors';
 
 import createConnection from './database';
 
 createConnection();
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
